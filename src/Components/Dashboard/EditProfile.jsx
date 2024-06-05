@@ -11,7 +11,7 @@ export default function EditProfile() {
         const form = e.target; // Accessing the form element
 
         // Extracting values from form inputs
-        const displayName = form.name.value;
+        const displayName = form.displayName.value;
         const email = form.email.value;
         const phoneNumber = form.phoneNumber.value;
         const photoURL = form.photoURL.value;
@@ -28,7 +28,7 @@ export default function EditProfile() {
 
         // Making a PATCH request to update user profile
         fetch(
-            `http://localhost:3000/user/${data?.email}`, // Endpoint for updating user profile
+            `https://techtutorium-server.onrender.com/user/${data?.email}`, // Endpoint for updating user profile
             {
                 method: "PATCH", // Using PATCH method for partial update
                 headers: {

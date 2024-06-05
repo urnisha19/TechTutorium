@@ -24,7 +24,7 @@ export default function Login() {
             await signInWithEmailAndPassword(auth, email, password); // Correct usage
 
             // Send user data to backend for login
-            const response = await fetch("http://localhost:3000/user/login", {
+            const response = await fetch("https://techtutorium-server.onrender.com/user/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -23,13 +23,14 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/">Home</Link></li>
                         <li>
-                            <Link>Web Development</Link>
+                            <Link>Categories</Link>
                             <ul className="p-2">
-                                <li><Link to="/">HTML</Link></li>
-                                <li><Link to="/">CSS</Link></li>
-                                <li><Link to="/">Javascript</Link></li>
-                                <li><Link to="/">React</Link></li>
+                                <li><Link to="/">Web Development</Link></li>
                                 <li><Link to="/">Machine Learning</Link></li>
+                                <li><Link to="/">Graphic Designing</Link></li>
+                                <li><Link to="/">Digital Marketing</Link></li>
+                                <li><Link to="/">Cyber Security</Link></li>
+                                <li><Link to="/">Amazon Web Service</Link></li>
                             </ul>
                         </li>
                         <li><Link to="/about">About</Link></li>
@@ -43,13 +44,14 @@ const Navbar = () => {
                     <li><Link to="/">Home</Link></li>
                     <li>
                         <details>
-                            <summary>Web Development</summary>
+                            <summary>Categories</summary>
                             <ul className="p-2">
-                                <li><Link to="/">HTML</Link></li>
-                                <li><Link to="/">CSS</Link></li>
-                                <li><Link to="/">Javascript</Link></li>
-                                <li><Link to="/">React</Link></li>
+                                <li><Link to="/">Web Development</Link></li>
                                 <li><Link to="/">Machine Learning</Link></li>
+                                <li><Link to="/">Graphic Designing</Link></li>
+                                <li><Link to="/">Digital Marketing</Link></li>
+                                <li><Link to="/">Cyber Security</Link></li>
+                                <li><Link to="/">Amazon Web Service</Link></li>
                             </ul>
                         </details>
                     </li>

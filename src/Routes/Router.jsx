@@ -8,6 +8,10 @@ import DashboardLayout from "../Components/Layout/DashboardLayout";
 import Dashboard from "../Pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import EditProfile from "../Components/Dashboard/EditProfile";
+import AddCourse from "../Components/Dashboard/AddCourse";
+import EditCourse from "../Components/Dashboard/EditCourse";
+import AllCourses from "../Components/Home/AllCourses";
+import CourseDetail from "../Pages/CourseDetail";
 
 // Creating router configuration
 export const Router = createBrowserRouter([
@@ -20,7 +24,15 @@ export const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
-            }
+            },
+            {
+                path: "/courses/:id",
+                element: <CourseDetail/>,
+                loader: ({ params }) =>
+                  fetch(
+                    `https://techtutorium-server.onrender.com/courses/${params.id}`
+                  ),
+              },
         ]
     },
     // Login page route
@@ -58,9 +70,29 @@ export const Router = createBrowserRouter([
                 // Adding loader to fetch data for PATCH operation in EditProfile component
                 loader: ({ params }) =>
                     fetch(
-                        `http://localhost:3000/user/get/${params.id}`
+                        `https://techtutorium-server.onrender.com/user/get/${params.id}`
                     ),
             },
+            {
+                path: "all-courses",
+                element: (
+                  <PrivateRoute>
+                    <AllCourses />
+                  </PrivateRoute>
+                ),
+              },
+            {
+                path: "add-course",
+                element: <AddCourse />,
+              },
+              {
+                path: "edit-course/:id",
+                element: <EditCourse />,
+                loader: ({ params }) => 
+                    fetch(
+                    `https://techtutorium-server.onrender.com/courses/${params.id}`
+                ),
+              },
         ]
     }
 ]);

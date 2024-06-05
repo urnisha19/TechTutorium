@@ -33,7 +33,7 @@ export default function Register() {
             const user = userCredential.user;
 
             // Send user data to backend for registration
-            await fetch("http://localhost:3000/user", {
+            await fetch("https://techtutorium-server.onrender.com/user", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -20,7 +20,7 @@ export default function GoogleLogin() {
       console.log(userInfo);
 
       // Sending user info to backend
-      fetch("http://localhost:3000/user", {
+      fetch("https://techtutorium-server.onrender.com/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

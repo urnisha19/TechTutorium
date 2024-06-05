@@ -15,7 +15,7 @@ const Dashboard = () => {
             setUser(currentUser);
             if (currentUser?.email) {
                 // Fetching user info from backend
-                fetch(`http://localhost:3000/user/${currentUser.email}`)
+                fetch(`https://techtutorium-server.onrender.com/user/${currentUser.email}`)
                     .then((res) => res.json())
                     .then((data) => setUserInfo(data))
                     //.then((data) => console.log(data))
