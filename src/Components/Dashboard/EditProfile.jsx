@@ -47,6 +47,7 @@ export default function EditProfile() {
     return (
         <div>
             <h1 className="text-3xl mb-7">Edit Profile </h1>
+
             <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
                 <div className="flex flex-col">
                     <label htmlFor="">User Name</label>
@@ -54,9 +55,10 @@ export default function EditProfile() {
                         type="text"
                         name="displayName"
                         defaultValue={data?.displayName}
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50  text-black"
                     />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="">User email</label>
                     <input
@@ -64,37 +66,41 @@ export default function EditProfile() {
                         value={data?.email}
                         disabled
                         name="email"
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50  text-black"
                     />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="">User Phone Number</label>
                     <input
                         type="text"
                         defaultValue={data?.phoneNumber}
                         name="phoneNumber"
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50  text-black"
                     />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="">User Profile Photo URL</label>
                     <input
                         type="text"
                         defaultValue={data?.photoURL}
                         name="photoURL"
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50  text-black"
                     />
                 </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="">Password</label>
                     <input
                         type="text"
                         defaultValue={data?.password}
                         name="password"
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50  text-black"
                     />
                 </div>
-                <div className="flex flex-col">
+                
+                <div className="flex flex-col mb-10">
                     <input
                         type="submit"
                         value="Update Profile"

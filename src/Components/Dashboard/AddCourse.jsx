@@ -8,16 +8,18 @@ const AddCourse = () => {
 
         const form = e.target;
 
+        // Extract form data
         const courseTitle = form.courseTitle.value;
         const category = form.category.value;
         const level = form.level.value;
         const description = form.description.value;
         const duration = form.duration.value;
-        const price = form.price.value;       
+        const price = form.price.value;
         const image_url = form.image_url.value;
 
-        const data = { courseTitle, category, level, description, duration, price, image_url};
+        const data = { courseTitle, category, level, description, duration, price, image_url };
 
+        // Send POST request to add course
         await fetch("https://techtutorium-server.onrender.com/courses", {
             method: "POST",
             headers: {
@@ -32,24 +34,25 @@ const AddCourse = () => {
                 form.reset();
             });
     };
-    return (
-        <div >
-            <h1 className="text-3xl mb-7">Add Course </h1>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
 
+    return (
+        <div className="border p-10">
+            <h1 className="text-3xl mb-7">Add Course </h1>
+            
+            <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
                 <div className="flex flex-col">
-                    <label htmlFor="courseTitle">Course Title </label>
+                    <label htmlFor="courseTitle"><p className="text-xl">Course Title</p></label>
                     <input
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50 text-xl text-black" // Added text-black class
                         type="text"
                         name="courseTitle"
-                        placeholder="Course Title"
                     />
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="category">Category</label>
-                    <select name="category">
+                    <label htmlFor="category"><p className="text-xl">Category</p></label>
+                    <select className="py-2 px-1 bg-slate-50 text-xl text-black" name="category">
+                        <option></option>
                         <option value="Web Development">Web Development</option>
                         <option value="Machine Learning">Machine Learning</option>
                         <option value="Graphic Designing<">Graphic Designing</option>
@@ -60,8 +63,9 @@ const AddCourse = () => {
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="level">Level</label>
-                    <select name="level">
+                    <label htmlFor="level"><p className="text-xl">Level</p></label>
+                    <select className="py-2 px-1 bg-slate-50 text-xl text-black" name="level">
+                        <option></option>
                         <option value="Beginner">Beginner</option>
                         <option value="Intermediate">Intermediate</option>
                         <option value="Advanced">Advanced</option>
@@ -69,51 +73,38 @@ const AddCourse = () => {
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="description">Description</label>
+                    <label htmlFor="description"><p className="text-xl">Description</p></label>
                     <input
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50 text-xl text-black" // Added text-black class
                         type="text"
                         name="description"
-                        placeholder="Description"
                     />
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="duration">Course Duration</label>
+                    <label htmlFor="duration"><p className="text-xl">Course Duration</p></label>
                     <input
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50 text-xl text-black" // Added text-black class
                         type="number"
                         name="duration"
-                        placeholder="Course Duration"
                     />
                 </div>
 
                 <div className="flex flex-col">
-                    <label htmlFor="price">Price</label>
+                    <label htmlFor="price"><p className="text-xl">Price</p></label>
                     <input
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50 text-xl text-black" // Added text-black class
                         type="text"
                         name="price"
-                        placeholder="Price"
                     />
                 </div>
 
-
                 <div className="flex flex-col">
-                    <label htmlFor="price">Image URL</label>
+                    <label htmlFor="price"><p className="text-xl">Image URL</p></label>
                     <input
-                        className="py-2 px-1 bg-slate-50 "
+                        className="py-2 px-1 bg-slate-50 text-xl text-black" // Added text-black class
                         type="text"
                         name="image_url"
-                        placeholder="Image URL"
-                    />
-                </div>
-
-                <div className="mt-2 flex justify-center items-center">
-                    <input
-                        className="btn mt-4 w-full bg-red-500 text-white p-4"
-                        type="submit"
-                        value="Add Course"
                     />
                 </div>
 
@@ -121,7 +112,7 @@ const AddCourse = () => {
                     <input
                         type="submit"
                         value="Add Course"
-                        className="py-2 px-1 bg-slate-950 text-white "
+                        className="py-2 px-1 bg-slate-950 text-xl text-white"
                     />
                 </div>
 

@@ -15,10 +15,10 @@ const CourseCard = ({ course }) => {
             ),
         },
         {
-            name: "Over 50+ videos",
+            name: "50+ videos",
             icon: (
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
-                    <path d="M24 23h-24v-21h24v21zm-20-1v-4h-3v4h3zm15 0v-19h-14v19h14zm4 0v-4h-3v4h3zm-6-9.5l-9 5v-10l9 5zm3 .5v4h3v-4h-3zm-16 4v-4h-3v4h3zm5-1.2l5.941-3.3-5.941-3.3v6.6zm11-7.8v4h3v-4h-3zm-16 4v-4h-3v4h3zm16-9v4h3v-4h-3zm-16 4v-4h-3v4h3z" />
+                    <path d="M24 23h-24v-21h24v21zm-20-1v-4h-3v4h3zm15 0v-19h-14v19h14zm4 0v-4h-3v4h3zm-6-9.5l-9 5v-10l9 5zm3 .5v4h3v-4h-3zm-16 4v-4h-3v4h3zm5-1.2l5.941-3.3-5.941-3.3v6.6zm11-7.8v4h3v-4h-3zm-16 4v-4h-3v4h3zm16-9v4h3v-4h-3z" />
                 </svg>
             ),
         },
@@ -28,53 +28,53 @@ const CourseCard = ({ course }) => {
     const { _id, courseTitle, category, level, description, duration, price, image_url } = course;
 
     return (
-        <div className='mx-auto shadow border rounded-lg'>
-        <div className='px-4 pt-4'>
-            <img
-                src={image_url}
-                alt='course'
-                className='rounded-xl object-cover w-full sm:w-[400px] h-[200px] sm:h-[300px]'
-            />
-        </div>
-        <div className='px-5 py-3'>
-            <p className='inline-block text-xs text-left capitalize border border-primary text-primary py-1 px-2 rounded-md'>
-                {level}
-            </p>
-            <h2 className='card-title text-base font-semibold text-dark'>
-                {courseTitle}
-            </h2>
-            {/* ------------------------rating-------------------- */}
-            <div className="flex items-center md:mb-4">
-                <div className="-ml-1 flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                        <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
+        <div className='mx-auto shadow border rounded-lg bg-white'>
+            <div className='px-4 pt-4'>
+                <img
+                    src={image_url}
+                    alt='course'
+                    className='rounded-xl object-cover w-full sm:w-[400px] h-[200px] sm:h-[300px]'
+                />
+            </div>
+            <div className='px-5 py-3'>
+                <p className='inline-block text-md text-left capitalize border border-primary text-primary py-1 px-2 rounded-md mb-2'>
+                    {level}
+                </p>
+                <h2 className='card-title text-lg font-semibold text-black'>
+                    {courseTitle}
+                </h2>
+                {/* ------------------------rating-------------------- */}
+                <div className="flex items-center md:mb-4">
+                    <div className="-ml-1 flex gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                            <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        ))}
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">4.2</span>
+                    <a href="#" className="ml-4 text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">
+                        view all 47 reviews
+                    </a>
+                </div>
+                {/* Rating - End */}
+                {/*------------------------- avatar-------------------- */}
+                <div className='flex mt-3 justify-end'>
+                    <button className='text-lg capitalize bg-blue-100 hover:bg-primary text-primary hover:text-white py-1 px-4 rounded-md flex items-center font-medium'> {/* Increased text size to text-lg */}
+                        <TbExternalLink className='text-base mr-2' /> <Link to={`/courses/${_id}`}>View</Link>
+                    </button>
+                </div>
+                <Divider />
+                <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 xl:justify-start">
+                    {features.map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-x-2 text-gray-500 text-lg"> {/* Increased text size to text-lg */}
+                            {item.icon}
+                            {item.name}
+                        </div>
                     ))}
                 </div>
-                <span className="ml-2 text-sm text-gray-500">4.2</span>
-                <a href="#" className="ml-4 text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">
-                    view all 47 reviews
-                </a>
-            </div>
-            {/* Rating - End */}
-            {/*------------------------- avatar-------------------- */}
-            <div className='flex mt-3 justify-end'>
-                <button className='text-[13px] capitalize bg-blue-100 hover:bg-primary text-primary hover:text-white py-1 px-4 rounded-md flex items-center font-medium'>
-                    <TbExternalLink className='text-base mr-2' /> <Link to={`/courses/${_id}`}>View</Link>
-                </button>
-            </div>
-            <Divider />
-            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 xl:justify-start">
-                {features.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-x-2 text-gray-500 text-sm">
-                        {item.icon}
-                        {item.name}
-                    </div>
-                ))}
             </div>
         </div>
-    </div>
     );
 };
 

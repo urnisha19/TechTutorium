@@ -1,3 +1,5 @@
+//It is a static component, will make it dynamic later
+
 import { FaPhotoVideo, FaStar } from "react-icons/fa";
 import { GiNotebook } from "react-icons/gi";
 import { PiStudentFill } from "react-icons/pi";
@@ -5,7 +7,7 @@ import { PiStudentFill } from "react-icons/pi";
 const Stat = () => {
     return (
         <div className="max-w-8xl mx-auto mb-10 text-center xl:text-left">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl my-10 md:my-16 lg:my-20 text-center">Overview</h1>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl my-10 md:my-16 lg:my-20 text-center text-primary">Overview</h1>
             <div className="flex flex-wrap items-center justify-center gap-10 xl:justify-star">
 
                 <div className="stats shadow text-2xl">

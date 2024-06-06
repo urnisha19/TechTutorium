@@ -10,9 +10,14 @@ export default {
     extend: {},
   },
   plugins: [
-    daisyui,
+    require("@tailwindcss/typography"),
+    require("daisyui")
   ],
+
   daisyui: {
-    themes: ["light"],
+    themes: [
+    // "light",
+    "dracula"
+  ],
   },
 }

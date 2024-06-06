@@ -10,8 +10,11 @@ import PrivateRoute from "./PrivateRoute";
 import EditProfile from "../Components/Dashboard/EditProfile";
 import AddCourse from "../Components/Dashboard/AddCourse";
 import EditCourse from "../Components/Dashboard/EditCourse";
-import AllCourses from "../Components/Home/AllCourses";
 import CourseDetail from "../Pages/CourseDetail";
+import ManageAllCourse from "../Components/Dashboard/ManageAllCourse";
+import AllCourses from "../Pages/AllCourses";
+import About from "../Pages/About";
+import ContactUs from "../Pages/ContactUs";
 
 // Creating router configuration
 export const Router = createBrowserRouter([
@@ -27,12 +30,29 @@ export const Router = createBrowserRouter([
             },
             {
                 path: "/courses/:id",
-                element: <CourseDetail/>,
+                element: <CourseDetail />,
                 loader: ({ params }) =>
-                  fetch(
-                    `https://techtutorium-server.onrender.com/courses/${params.id}`
-                  ),
-              },
+                    fetch(
+                        `https://techtutorium-server.onrender.com/courses/${params.id}`
+                    ),
+            },
+            //All courses page route
+            {
+                path: "/all-courses",
+                element: <AllCourses />
+            },
+
+            //About us Page
+            {
+                path: "/about",
+                element: <About />
+            },
+
+            //Contact us Page
+            {
+                path: "/contact",
+                element: <ContactUs />
+            },
         ]
     },
     // Login page route
@@ -40,11 +60,13 @@ export const Router = createBrowserRouter([
         path: "/login",
         element: <Login />,
     },
+
     // Register page route
     {
         path: "/register",
         element: <Register />,
     },
+
     // Dashboard section route with private access
     {
         path: "/dashboard",
@@ -74,25 +96,31 @@ export const Router = createBrowserRouter([
                     ),
             },
             {
-                path: "all-courses",
+                path: "manage-courses",
                 element: (
-                  <PrivateRoute>
-                    <AllCourses />
-                  </PrivateRoute>
-                ),
-              },
+                    <PrivateRoute>
+                        <ManageAllCourse />,
+                    </PrivateRoute>)
+            },
             {
                 path: "add-course",
-                element: <AddCourse />,
-              },
-              {
+                element: (
+                    <PrivateRoute>
+                        <AddCourse />,
+                    </PrivateRoute>)
+            },
+            {
                 path: "edit-course/:id",
-                element: <EditCourse />,
-                loader: ({ params }) => 
+                element: (
+                    <PrivateRoute>
+                        <EditCourse />
+                    </PrivateRoute>),
+                loader: ({ params }) =>
                     fetch(
-                    `https://techtutorium-server.onrender.com/courses/${params.id}`
-                ),
-              },
+                        `https://techtutorium-server.onrender.com/courses/${params.id}`
+                    ),
+            },
         ]
     }
+
 ]);

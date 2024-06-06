@@ -4,15 +4,14 @@ import { auth } from "../../Firebase/firebase.config";
 
 const Navbar = () => {
     const [user] = useAuthState(auth); // Getting the current user's authentication state
-
-    // Using the useSignOut hook to sign out the user
     const [signOut] = useSignOut(auth);
+
     const handleLogout = async () => {
         await signOut(); // Calling signOut function to sign out the user
     };
 
     return (
-        <div className="navbar bg-base-300">
+        <div className="navbar bg-base-300 text-base-content">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,76 +20,70 @@ const Navbar = () => {
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/" className="text-lg active:bg-slate-500">Home</Link></li>
+                        <li><Link to="/all-courses" className="text-lg">Courses</Link></li>
                         <li>
-                            <Link>Categories</Link>
+                            <Link className="text-lg">Categories</Link>
                             <ul className="p-2">
-                                <li><Link to="/">Web Development</Link></li>
-                                <li><Link to="/">Machine Learning</Link></li>
-                                <li><Link to="/">Graphic Designing</Link></li>
-                                <li><Link to="/">Digital Marketing</Link></li>
-                                <li><Link to="/">Cyber Security</Link></li>
-                                <li><Link to="/">Amazon Web Service</Link></li>
+                                <li><Link to="/" className="text-lg">Web Development</Link></li>
+                                <li><Link to="/" className="text-lg">Machine Learning</Link></li>
+                                <li><Link to="/" className="text-lg">Graphic Designing</Link></li>
+                                <li><Link to="/" className="text-lg">Digital Marketing</Link></li>
+                                <li><Link to="/" className="text-lg">Cyber Security</Link></li>
+                                <li><Link to="/" className="text-lg">Amazon Web Service</Link></li>
                             </ul>
                         </li>
-                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/about" className="text-lg">About</Link></li>
+                        <li><Link to="/contact" className="text-lg">Contact US</Link></li>
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost text-xl">TechTutorium</Link>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">TechTutorium</Link>
             </div>
 
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/" className="text-lg">Home</Link></li>
+                    <li><Link to="/all-courses" className="text-lg">Courses</Link></li>
                     <li>
                         <details>
-                            <summary>Categories</summary>
+                            <summary className="text-lg">Categories</summary>
                             <ul className="p-2">
-                                <li><Link to="/">Web Development</Link></li>
-                                <li><Link to="/">Machine Learning</Link></li>
-                                <li><Link to="/">Graphic Designing</Link></li>
-                                <li><Link to="/">Digital Marketing</Link></li>
-                                <li><Link to="/">Cyber Security</Link></li>
-                                <li><Link to="/">Amazon Web Service</Link></li>
+                                <li><Link to="/" className="text-lg">Web Development</Link></li>
+                                <li><Link to="/" className="text-lg">Machine Learning</Link></li>
+                                <li><Link to="/" className="text-lg">Graphic Designing</Link></li>
+                                <li><Link to="/" className="text-lg">Digital Marketing</Link></li>
+                                <li><Link to="/" className="text-lg">Cyber Security</Link></li>
+                                <li><Link to="/" className="text-lg">Amazon Web Service</Link></li>
                             </ul>
                         </details>
                     </li>
-                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/about" className="text-lg">About</Link></li>
+                    <li><Link to="/contact" className="text-lg">Contact US</Link></li>
                 </ul>
             </div>
 
-            {/* user logged in kina */}
-            {!user?.email ? (
-                <div className="navbar-end flex gap-4">
-                    <Link to={"/login"} className="btn">
-                        Login
-                    </Link>
-                    <Link to={"/register"} className="btn">
-                        Registration
-                    </Link>
-                </div>
-            ) : (
-                <div className="navbar-end flex gap-4">
-                    <div>
-                        <button className="btn" onClick={handleLogout}>
+            <div className="navbar-end flex gap-4">
+                {!user?.email ? (
+                    <>
+                        <Link to="/login" className="btn text-lg bg-primary hover:bg-primary-focus text-base-content">Login</Link>
+                        <Link to="/register" className="btn text-lg bg-primary hover:bg-primary-focus text-base-content">Registration</Link>
+                    </>
+                ) : (
+                    <>
+                        <button className="btn text-lg bg-accent hover:bg-primary-focus text-base-content" onClick={handleLogout}>
                             Logout
                         </button>
-                    </div>
-                    <div>
-                        <Link to={"/dashboard"} className="btn">
-                            Dashboard
-                        </Link>
-                    </div>
-                    <div className="avatar">
-                        {/* <p>{user.displayName}</p> */}
-                        <div className="w-12 rounded-full border-2 border-black">
-                            <img src={user?.photoURL || "/public/placeholder.jpg"} />
+                        <Link to="/dashboard" className="btn text-lg bg-secondary hover:bg-primary-focus text-base-content">Dashboard</Link>
+                        <div className="avatar">
+                            <div className="w-12 rounded-full border-2 border-primary">
+                                <img src={user?.photoURL || "/placeholder.jpg"} alt="User Avatar" />
+                            </div>
                         </div>
-                    </div>
-                </div>
-            )}
+                    </>
+                )}
+            </div>
         </div>
-    )
+    );
+};
 
-}
 export default Navbar;

@@ -70,7 +70,7 @@ export default function Login() {
 
 
                 <div className="card shadow-2xl bg-base-100 max-w-lg mx-auto lg:mx-0">
-                    <form onSubmit={handleSubmit} className="card-body p-6">
+                    <form onSubmit={handleSubmit} className="card-body p-6 ">
                         {error && <p className="text-red-500 mb-4">{error}</p>} {/* Display error message */}
                         <div className="form-control mb-4">
                             <label className="label">
